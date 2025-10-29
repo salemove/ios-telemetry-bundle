@@ -1,0 +1,98 @@
+name: Release workflow
+
+on:
+  create:
+    # Trigger only when a new branch is created
+    ref_type: branch
+    # Filter branches that match the pattern Release/<semver>
+    # Note: GitHub Actions does not support full regex in the `on` filter,
+    # so we guard with a conditional in the job.
+    branches:
+      - 'Release/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/Release/')
+    env:
+      GITHUB_REF: ${{ github.ref_name == '' && '' || github.ref_name }}
+    steps:
+      - name: Extract semantic version
+        id: version
+        run: |
+          # Strip the leading "Release/"
+          raw="${GITHUB_REF#refs/heads/Release/}"
+          # Simple semver regex (allows pre‑release and build metadata)
+          if [[ "$raw" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+            echo "version=$raw" >> $GITHUB_OUTPUT
+          else
+            echo "Invalid semantic version: $raw"
+            exit 1
+          fi
+
+      - name: Environment setup
+        id: vars
+        run: |
+          echo "git_email=github-actions[bot]@users.noreply.github.com" >> $GITHUB_OUTPUT
+          echo "git_username=github-actions[bot]" >> $GITHUB_OUTPUT
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract last commit description
+        id: commit
+        run: |
+          # Get the last commit message (description/body)
+          commit_description=$(git log -1 --pretty=format:"%B" | tail -n +2)
+          # Escape newlines and special characters for GitHub output
+          commit_description="${commit_description//'%'/'%25'}"
+          commit_description="${commit_description//$'\n'/'%0A'}"
+          commit_description="${commit_description//$'\r'/'%0D'}"
+          echo "changelog=$commit_description" >> $GITHUB_OUTPUT
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        env:
+         VERSION: ${{ steps.version.outputs.version }}
+         CHANGE_LOG: ${{ steps.commit.outputs.changelog }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: master
+          head: ${{ github.ref_name }}
+          title: "Release $VERSION"
+          body: |
+            ## Changelog:
+            ${CHANGE_LOG}
+            
+          team-reviewers: salemove/tm-mobile-ios
+          draft: false
+          delete-branch: false
+
+      - name: Create tag
+        env:
+          TAG: ${{ steps.version.outputs.version }}
+          USERNAME: ${{ steps.vars.outputs.git_username }}
+          EMAIL: ${{ steps.vars.outputs.git_email }}
+        run: |
+          git config --global user.name "$USERNAME"
+          git config --global user.email "$EMAIL"
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+          git tag "$TAG" "$GITHUB_SHA"
+          git push origin "$TAG"
+
+      - name: Create draft release
+        env:
+         VERSION: ${{ steps.version.outputs.version }}
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: $VERSION
+          name: "Release $VERSION" 
+          draft: true
+          generate_release_notes: true
