@@ -6,7 +6,7 @@ on:
       - "Release/**"
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -49,7 +49,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: master
-          branch: release/${{ steps.version.outputs.version }}
+          branch: Release/${{ steps.version.outputs.version }}
           title: "Release/${{ steps.version.outputs.version }}"
           body: |
             ## What's Changed:
