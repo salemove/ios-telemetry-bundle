@@ -1,23 +1,27 @@
 name: Release workflow
 
-on:
-  create:
-    # Trigger only when a new branch is created
-    ref_type: branch
-    # Filter branches that match the pattern Release/<semver>
-    # Note: GitHub Actions does not support full regex in the `on` filter,
-    # so we guard with a conditional in the job.
-    branches:
-      - 'Release/**'
+# on:
+#   create:
+#     # Trigger only when a new branch is created
+#     ref_type: branch
+#     # Filter branches that match the pattern Release/<semver>
+#     # Note: GitHub Actions does not support full regex in the `on` filter,
+#     # so we guard with a conditional in the job.
+#     branches:
+#       - 'Release/**'
 
-permissions:
-  contents: write
-  pull-requests: write
+on:
+  push:
+    branches:
+      - Release/1.0.6 
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/heads/Release/')
+    if: startsWith(github.ref, 'refs/heads/Release/')   
+    permissions:
+      contents: write
+      pull-requests: write
     env:
       GITHUB_REF: ${{ github.ref_name == '' && '' || github.ref_name }}
     steps:
@@ -26,7 +30,7 @@ jobs:
         run: |
           # Strip the leading "Release/"
           raw="${GITHUB_REF#refs/heads/Release/}"
-          # Simple semver regex (allows pre‑release and build metadata)
+          # Simple semver regex (allows pre-release and build metadata)
           if [[ "$raw" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
             echo "version=$raw" >> $GITHUB_OUTPUT
           else
@@ -58,18 +62,13 @@ jobs:
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5
-        env:
-         VERSION: ${{ steps.version.outputs.version }}
-         CHANGE_LOG: ${{ steps.commit.outputs.changelog }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: master
-          head: ${{ github.ref_name }}
-          title: "Release $VERSION"
+          title: "Release/${{ steps.version.outputs.version }}"
           body: |
             ## Changelog:
-            ${CHANGE_LOG}
-            
+            ${{ steps.commit.outputs.changelog }}
           team-reviewers: salemove/tm-mobile-ios
           draft: false
           delete-branch: false
@@ -82,7 +81,6 @@ jobs:
         run: |
           git config --global user.name "$USERNAME"
           git config --global user.email "$EMAIL"
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           git tag "$TAG" "$GITHUB_SHA"
           git push origin "$TAG"
 
