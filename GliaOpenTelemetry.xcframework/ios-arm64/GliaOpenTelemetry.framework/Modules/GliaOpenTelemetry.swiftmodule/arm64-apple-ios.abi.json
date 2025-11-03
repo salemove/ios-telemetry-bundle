@@ -23,6 +23,473 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry"
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetryApi",
+        "printedName": "OpenTelemetryApi",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetrySdk",
+        "printedName": "OpenTelemetrySdk",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry"
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetrySdk",
+        "printedName": "OpenTelemetrySdk",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetryApi",
+        "printedName": "OpenTelemetryApi",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GliaTracer",
+        "printedName": "GliaTracer",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "startTrace",
+            "printedName": "startTrace(event:attributesBuilder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SpanWrapper",
+                "printedName": "GliaOpenTelemetry.SpanWrapper",
+                "usr": "s:17GliaOpenTelemetry11SpanWrapperC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogEvents",
+                "printedName": "GliaOpenTelemetry.LogEvents",
+                "usr": "s:17GliaOpenTelemetry9LogEventsO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((inout [GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(inout [GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GliaAttributes",
+                            "printedName": "GliaOpenTelemetry.GliaAttributes",
+                            "usr": "s:17GliaOpenTelemetry0A10AttributesO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GliaAttributeValue",
+                            "printedName": "GliaOpenTelemetry.GliaAttributeValue",
+                            "usr": "s:17GliaOpenTelemetry0A14AttributeValueO"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17GliaOpenTelemetry0A6TracerC10startTrace5event17attributesBuilderAA11SpanWrapperCAA9LogEventsO_ySDyAA0A10AttributesOAA0A14AttributeValueOGzcSgtF",
+            "mangledName": "$s17GliaOpenTelemetry0A6TracerC10startTrace5event17attributesBuilderAA11SpanWrapperCAA9LogEventsO_ySDyAA0A10AttributesOAA0A14AttributeValueOGzcSgtF",
+            "moduleName": "GliaOpenTelemetry",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:17GliaOpenTelemetry0A6TracerC",
+        "mangledName": "$s17GliaOpenTelemetry0A6TracerC",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry"
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetrySdk",
+        "printedName": "OpenTelemetrySdk",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetryApi",
+        "printedName": "OpenTelemetryApi",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetryApi",
+        "printedName": "OpenTelemetryApi",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SpanContextWrapper",
+        "printedName": "SpanContextWrapper",
+        "declKind": "Struct",
+        "usr": "s:17GliaOpenTelemetry18SpanContextWrapperV",
+        "mangledName": "$s17GliaOpenTelemetry18SpanContextWrapperV",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry"
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetrySdk",
+        "printedName": "OpenTelemetrySdk",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetryApi",
+        "printedName": "OpenTelemetryApi",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SpanExceptionWrapperProtocol",
+        "printedName": "SpanExceptionWrapperProtocol",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "type",
+            "printedName": "type",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvp",
+            "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvp",
+            "moduleName": "GliaOpenTelemetry",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvg",
+                "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvg",
+                "moduleName": "GliaOpenTelemetry",
+                "genericSig": "<τ_0_0 where τ_0_0 : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
+                "sugared_genericSig": "<Self where Self : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "message",
+            "printedName": "message",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvp",
+            "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvp",
+            "moduleName": "GliaOpenTelemetry",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvg",
+                "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvg",
+                "moduleName": "GliaOpenTelemetry",
+                "genericSig": "<τ_0_0 where τ_0_0 : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
+                "sugared_genericSig": "<Self where Self : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "stackTrace",
+            "printedName": "stackTrace",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvp",
+            "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvp",
+            "moduleName": "GliaOpenTelemetry",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvg",
+                "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvg",
+                "moduleName": "GliaOpenTelemetry",
+                "genericSig": "<τ_0_0 where τ_0_0 : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
+                "sugared_genericSig": "<Self where Self : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP",
+        "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry"
+      },
+      {
+        "kind": "Import",
+        "name": "OpenTelemetrySdk",
+        "printedName": "OpenTelemetrySdk",
+        "declKind": "Import",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "OpenTelemetryApi",
         "printedName": "OpenTelemetryApi",
         "declKind": "Import",
@@ -15791,547 +16258,6 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry"
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetrySdk",
-        "printedName": "OpenTelemetrySdk",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry"
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetryApi",
-        "printedName": "OpenTelemetryApi",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetrySdk",
-        "printedName": "OpenTelemetrySdk",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry"
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetrySdk",
-        "printedName": "OpenTelemetrySdk",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetryApi",
-        "printedName": "OpenTelemetryApi",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "GliaTracer",
-        "printedName": "GliaTracer",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "startTrace",
-            "printedName": "startTrace(event:attributesBuilder:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "SpanWrapper",
-                "printedName": "GliaOpenTelemetry.SpanWrapper",
-                "usr": "s:17GliaOpenTelemetry11SpanWrapperC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "LogEvents",
-                "printedName": "GliaOpenTelemetry.LogEvents",
-                "usr": "s:17GliaOpenTelemetry9LogEventsO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((inout [GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]) -> ())?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(inout [GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]) -> ()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Dictionary",
-                        "printedName": "[GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "GliaAttributes",
-                            "printedName": "GliaOpenTelemetry.GliaAttributes",
-                            "usr": "s:17GliaOpenTelemetry0A10AttributesO"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "GliaAttributeValue",
-                            "printedName": "GliaOpenTelemetry.GliaAttributeValue",
-                            "usr": "s:17GliaOpenTelemetry0A14AttributeValueO"
-                          }
-                        ],
-                        "usr": "s:SD"
-                      }
-                    ]
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:17GliaOpenTelemetry0A6TracerC10startTrace5event17attributesBuilderAA11SpanWrapperCAA9LogEventsO_ySDyAA0A10AttributesOAA0A14AttributeValueOGzcSgtF",
-            "mangledName": "$s17GliaOpenTelemetry0A6TracerC10startTrace5event17attributesBuilderAA11SpanWrapperCAA9LogEventsO_ySDyAA0A10AttributesOAA0A14AttributeValueOGzcSgtF",
-            "moduleName": "GliaOpenTelemetry",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:17GliaOpenTelemetry0A6TracerC",
-        "mangledName": "$s17GliaOpenTelemetry0A6TracerC",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "hasMissingDesignatedInitializers": true,
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry"
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetrySdk",
-        "printedName": "OpenTelemetrySdk",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetryApi",
-        "printedName": "OpenTelemetryApi",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetryApi",
-        "printedName": "OpenTelemetryApi",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "SpanContextWrapper",
-        "printedName": "SpanContextWrapper",
-        "declKind": "Struct",
-        "usr": "s:17GliaOpenTelemetry18SpanContextWrapperV",
-        "mangledName": "$s17GliaOpenTelemetry18SpanContextWrapperV",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry"
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetrySdk",
-        "printedName": "OpenTelemetrySdk",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "OpenTelemetryApi",
-        "printedName": "OpenTelemetryApi",
-        "declKind": "Import",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "SpanExceptionWrapperProtocol",
-        "printedName": "SpanExceptionWrapperProtocol",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "type",
-            "printedName": "type",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvp",
-            "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvp",
-            "moduleName": "GliaOpenTelemetry",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvg",
-                "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP4typeSSvg",
-                "moduleName": "GliaOpenTelemetry",
-                "genericSig": "<τ_0_0 where τ_0_0 : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
-                "sugared_genericSig": "<Self where Self : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "message",
-            "printedName": "message",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvp",
-            "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvp",
-            "moduleName": "GliaOpenTelemetry",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvg",
-                "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP7messageSSSgvg",
-                "moduleName": "GliaOpenTelemetry",
-                "genericSig": "<τ_0_0 where τ_0_0 : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
-                "sugared_genericSig": "<Self where Self : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "stackTrace",
-            "printedName": "stackTrace",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[Swift.String]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[Swift.String]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvp",
-            "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvp",
-            "moduleName": "GliaOpenTelemetry",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "[Swift.String]?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Array",
-                        "printedName": "[Swift.String]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ],
-                        "usr": "s:Sa"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvg",
-                "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP10stackTraceSaySSGSgvg",
-                "moduleName": "GliaOpenTelemetry",
-                "genericSig": "<τ_0_0 where τ_0_0 : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
-                "sugared_genericSig": "<Self where Self : GliaOpenTelemetry.SpanExceptionWrapperProtocol>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "s:17GliaOpenTelemetry28SpanExceptionWrapperProtocolP",
-        "mangledName": "$s17GliaOpenTelemetry28SpanExceptionWrapperProtocolP",
-        "moduleName": "GliaOpenTelemetry",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "OtlpHttpLogExporter",
-        "printedName": "OtlpHttpLogExporter",
-        "declKind": "Class",
-        "usr": "s:33OpenTelemetryProtocolExporterHttp04Otlpe3LogD0C",
-        "mangledName": "$s33OpenTelemetryProtocolExporterHttp04Otlpe3LogD0C",
-        "moduleName": "OpenTelemetryProtocolExporterHttp",
-        "superclassUsr": "s:33OpenTelemetryProtocolExporterHttp04OtlpeD4BaseC",
-        "isExternal": true,
-        "superclassNames": [
-          "OpenTelemetryProtocolExporterHttp.OtlpHttpExporterBase"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "LogRecordExporter",
-            "printedName": "LogRecordExporter",
-            "usr": "s:16OpenTelemetrySdk17LogRecordExporterP",
-            "mangledName": "$s16OpenTelemetrySdk17LogRecordExporterP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "OtlpHttpTraceExporter",
-        "printedName": "OtlpHttpTraceExporter",
-        "declKind": "Class",
-        "usr": "s:33OpenTelemetryProtocolExporterHttp04Otlpe5TraceD0C",
-        "mangledName": "$s33OpenTelemetryProtocolExporterHttp04Otlpe5TraceD0C",
-        "moduleName": "OpenTelemetryProtocolExporterHttp",
-        "superclassUsr": "s:33OpenTelemetryProtocolExporterHttp04OtlpeD4BaseC",
-        "isExternal": true,
-        "superclassNames": [
-          "OpenTelemetryProtocolExporterHttp.OtlpHttpExporterBase"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "SpanExporter",
-            "printedName": "SpanExporter",
-            "usr": "s:16OpenTelemetrySdk12SpanExporterP",
-            "mangledName": "$s16OpenTelemetrySdk12SpanExporterP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
-      },
-      {
         "kind": "TypeDecl",
         "name": "NSError",
         "printedName": "NSError",
@@ -16622,11 +16548,99 @@
             "mangledName": "$s16OpenTelemetryApi13SpanExceptionP"
           }
         ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OtlpHttpLogExporter",
+        "printedName": "OtlpHttpLogExporter",
+        "declKind": "Class",
+        "usr": "s:33OpenTelemetryProtocolExporterHttp04Otlpe3LogD0C",
+        "mangledName": "$s33OpenTelemetryProtocolExporterHttp04Otlpe3LogD0C",
+        "moduleName": "OpenTelemetryProtocolExporterHttp",
+        "superclassUsr": "s:33OpenTelemetryProtocolExporterHttp04OtlpeD4BaseC",
+        "isExternal": true,
+        "superclassNames": [
+          "OpenTelemetryProtocolExporterHttp.OtlpHttpExporterBase"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "LogRecordExporter",
+            "printedName": "LogRecordExporter",
+            "usr": "s:16OpenTelemetrySdk17LogRecordExporterP",
+            "mangledName": "$s16OpenTelemetrySdk17LogRecordExporterP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OtlpHttpTraceExporter",
+        "printedName": "OtlpHttpTraceExporter",
+        "declKind": "Class",
+        "usr": "s:33OpenTelemetryProtocolExporterHttp04Otlpe5TraceD0C",
+        "mangledName": "$s33OpenTelemetryProtocolExporterHttp04Otlpe5TraceD0C",
+        "moduleName": "OpenTelemetryProtocolExporterHttp",
+        "superclassUsr": "s:33OpenTelemetryProtocolExporterHttp04OtlpeD4BaseC",
+        "isExternal": true,
+        "superclassNames": [
+          "OpenTelemetryProtocolExporterHttp.OtlpHttpExporterBase"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "SpanExporter",
+            "printedName": "SpanExporter",
+            "usr": "s:16OpenTelemetrySdk12SpanExporterP",
+            "mangledName": "$s16OpenTelemetrySdk12SpanExporterP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       }
     ],
     "json_format_version": 8
   },
   "ConstValues": [
+    {
+      "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Exporters\/StdoutLogExporter.swift",
+      "kind": "BooleanLiteral",
+      "offset": 152,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Exporters\/StdoutSpanExporter.swift",
+      "kind": "BooleanLiteral",
+      "offset": 177,
+      "length": 5,
+      "value": "false"
+    },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
@@ -18019,20 +18033,6 @@
       "offset": 232,
       "length": 10,
       "value": "\"ios_logs\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Exporters\/StdoutLogExporter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 152,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Exporters\/StdoutSpanExporter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 177,
-      "length": 5,
-      "value": "false"
     }
   ]
 }

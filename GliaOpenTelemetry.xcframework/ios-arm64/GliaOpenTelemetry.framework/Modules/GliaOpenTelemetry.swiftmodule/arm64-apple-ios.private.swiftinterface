@@ -8,6 +8,28 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class GliaTracer {
+  public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
+  @objc deinit
+}
+public struct SpanContextWrapper {
+}
+public protocol SpanExceptionWrapperProtocol {
+  var type: Swift.String { get }
+  var message: Swift.String? { get }
+  var stackTrace: [Swift.String]? { get }
+}
+extension Foundation.NSError : GliaOpenTelemetry.SpanExceptionWrapperProtocol {
+  public var type: Swift.String {
+    get
+  }
+  public var message: Swift.String? {
+    get
+  }
+  public var stackTrace: [Swift.String]? {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers public class SpanWrapper {
   public var name: Swift.String {
     get
@@ -502,28 +524,6 @@ public struct TelemetryConfiguration {
     get
   }
   public init(domain: Swift.String)
-}
-@_hasMissingDesignatedInitializers public class GliaTracer {
-  public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
-  @objc deinit
-}
-public struct SpanContextWrapper {
-}
-public protocol SpanExceptionWrapperProtocol {
-  var type: Swift.String { get }
-  var message: Swift.String? { get }
-  var stackTrace: [Swift.String]? { get }
-}
-extension Foundation.NSError : GliaOpenTelemetry.SpanExceptionWrapperProtocol {
-  public var type: Swift.String {
-    get
-  }
-  public var message: Swift.String? {
-    get
-  }
-  public var stackTrace: [Swift.String]? {
-    get
-  }
 }
 extension GliaOpenTelemetry.GliaAttributes : Swift.Equatable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Hashable {}
