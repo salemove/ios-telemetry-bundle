@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
     LICENSE
   }  
   s.author           = { 'Glia' => 'support@salemove.com' }
-  s.source           = { :http => 'https://github.com/salemove/ios-bundle/releases/download/2.1.5/GliaOpenTelemetry.xcframework.zip' }
+  s.source           = { :http => 'https://github.com/salemove/ios-bundle/releases/download/1.0.6/GliaOpenTelemetry.xcframework.zip' }
 
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.3'
