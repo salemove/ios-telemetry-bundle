@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
   # --- Basic Information ---
   s.name             = 'GliaOpenTelemetry'
-  s.version          = '1.0.5'
+  s.version          = '1.0.6'
   s.summary          = 'A wrapper for a fork of the OpenTelemetry Swift SDK.'
   s.description      = <<-DESC
                        This pod provides a custom Glia interface for OpenTelemetry and
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
     LICENSE
   }  
   s.author           = { 'Glia' => 'support@salemove.com' }
-  s.source           = { :http => 'https://github.com/salemove/ios-telemetry-bundle/releases/download/1.0.5/GliaOpenTelemetry.xcframework.zip' }
+  s.source           = { :http => 'https://github.com/salemove/ios-telemetry-bundle/releases/download/1.0.6/GliaOpenTelemetry.xcframework.zip' }
 
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.3'
