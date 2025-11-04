@@ -1,0 +1,575 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GliaOpenTelemetry
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public typealias GlobalAttribute = Swift.String
+public typealias EventAttribute = Swift.String
+public enum GliaAttributes : Swift.String {
+  case stackTrace
+  case visitorId
+  case engagementId
+  case siteId
+  case appInstallationId
+  case appAuthor
+  case sdkFrameworkName
+  case sdkFrameworkVersion
+  case sdkWidgetsVersion
+  case sdkCoreVersion
+  case deviceNetworkType
+  case deviceNetworkMetered
+  case error
+  case details
+  case outcome
+  case cause
+  case className
+  case methodName
+  case apiKeyId
+  case mediaType
+  case engagementType
+  case engagementSource
+  case deviceOrientation
+  case permission
+  case permissionResult
+  case environment
+  case localeCode
+  case socketUrl
+  case channelTopic
+  case channelEvent
+  case queueId
+  case queueTicketId
+  case queueTerminateExistingBool
+  case visitorContextId
+  case fileId
+  case requestId
+  case operatorId
+  case actionType
+  case messageId
+  case messageType
+  case messageSender
+  case messageCount
+  case buttonName
+  case dialogName
+  case pushType
+  case viewType
+  case visitorCodeState
+  case entryWidgetState
+  case entryWidgetItems
+  case bubbleState
+  public var name: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ButtonNames : Swift.String {
+  case send
+  case retry
+  case gva
+  case downloadFile
+  case removeAttachment
+  case newMessagesIndicator
+  case close
+  case end
+  case back
+  case addAttachment
+  case selectFromLibrary
+  case takePhoto
+  case browseFiles
+  case scTopBanner
+  case scTopBannerChat
+  case scTopBannerVideo
+  case scTopBannerAudio
+  case topBannerUnknown
+  case ok
+  case positive
+  case negative
+  case engagementConfirmationLink1
+  case engagementConfirmationLink2
+  case chat
+  case videoOn
+  case videoOff
+  case mute
+  case unmute
+  case speakerOn
+  case speakerOff
+  case minimize
+  case checkMessages
+  case submit
+  case cancel
+  case flipCamera
+  case retryLoadEntryWidgetItems
+  case refreshVisitorCode
+  case closeVisitorCode
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DialogNames : Swift.String {
+  case permissionsRequest
+  case missingPermission
+  case screenOverlayPermissionRequest
+  case liveObservationConfirmation
+  case leaveQueueConfirmation
+  case leaveEngagementConfirmation
+  case leaveSecureConversationsConfirmation
+  case engagementEnded
+  case visitorCode
+  case unexpectedError
+  case secureConversationUnavailableError
+  case allowPushNotification
+  case unauthenticatedError
+  case mediaUpgradeConfirmation
+  case queueIsClosed
+  case unsupportedGvaBroadcast
+  case unavailableMediaSource
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GvaActionTypes : Swift.String {
+  case broadcastEvent
+  case phone
+  case email
+  case url
+  case postBack
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum MediaTypes : Swift.String {
+  case localAudio
+  case localVideo
+  case remoteAudio
+  case remoteVideo
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EngagementSources : Swift.String {
+  case omnicore
+  case omnibrowse
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EngagementTypes : Swift.String {
+  case chat
+  case audio
+  case oneWayVideo
+  case twoWayVideo
+  case secureMessaging
+  case callVisualizer
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PushNotificationsTypes : Swift.String {
+  case start
+  case end
+  case failed
+  case message
+  case transfer
+  case seccureMessage
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum BubbleStates : Swift.String {
+  case enqueueing
+  case operatorConnected
+  case onHold
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ViewTypes : Swift.String {
+  case embedded
+  case bottomSheet
+  case dialog
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EntryWidgetStates : Swift.String {
+  case offline
+  case loading
+  case items
+  case error
+  case sdkNotInitialized
+  case ongoingEngagement
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum VisitorCodeStates : Swift.String {
+  case loading
+  case codeShown
+  case error
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DeviceOrientations : Swift.String {
+  case portrait
+  case landscape
+  case faceUp
+  case faceDown
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum FrameworkNames : Swift.String {
+  case native
+  case flutter
+  case ionic
+  case reactNative
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SdkType {
+  case coreSdk
+  case widgetsSdk
+  case flutter
+  case ionic
+  case reactNative
+  public static func == (a: GliaOpenTelemetry.SdkType, b: GliaOpenTelemetry.SdkType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum LogEvents {
+  case appStarted
+  case appBackground
+  case appDestroyed
+  case appForeground
+  case deviceNetworkChange
+  case deviceScreenOff
+  case deviceScreenOn
+  case deviceOrientationChange
+  case devicePermissionRequesting
+  case devicePermissionOutcome
+  case coreSdkConfiguring
+  case coreSdkConfigured
+  case coreSdkAccessTokenLoading
+  case coreSdkAccessTokenLoaded
+  case coreSdkSocketConnecting
+  case coreSdkSocketConnected
+  case coreSdkSocketDisconnected
+  case coreSdkChannelConnecting
+  case coreSdkChannelConnected
+  case coreSdkChannelReceivedMessage
+  case coreSdkChannelPushMessage
+  case coreSdkLocaleLoading
+  case coreSdkLocaleLoaded
+  case coreSdkMessageSending
+  case coreSdkMessageSent
+  case coreSdkMessageReceived
+  case coreSdkUncategorized
+  case widgetsSdkSetup
+  case widgetsSdkConfiguring
+  case widgetsSdkConfigured
+  case widgetsSdkApiCall
+  case widgetsSdkLegacyApiCall
+  case widgetsSdkUncategorized
+  case visitorCreating
+  case visitorCreated
+  case visitorRestoredFromCache
+  case visitorRenewing
+  case visitorRenewed
+  case visitorAuthenticating
+  case visitorAuthenticated
+  case visitorReauthenticating
+  case visitorReauthenticated
+  case visitorDeauthenticated
+  case queueListLoading
+  case queueListLoaded
+  case queueTicketCreating
+  case queueTicketCreated
+  case queueTicketCanceling
+  case queueTicketCanceled
+  case queueTicketUpdated
+  case engagementRequestSent
+  case engagementRequestReceived
+  case engagementRequestAccepted
+  case engagementRequestDeclined
+  case engagementStarted
+  case engagementTransferred
+  case engagementEnded
+  case mediaUpgradeRequestReceived
+  case mediaUpgradeRequestAccepted
+  case mediaUpgradeRequestDeclined
+  case mediaStarted
+  case mediaStopped
+  case mediaPaused
+  case mediaResumed
+  case mediaOnHold
+  case mediaStateChanged
+  case pushNotificationsTokenReceived
+  case pushNotificationsReceived
+  case pushNotificationsClicked
+  case pushNotificationsSubscribed
+  case pushNotificationsUnsubscribed
+  case pushNotificationsSettingsUpdated
+  case webRtcUncategorized
+  case medraUncategorized
+  case twilioUncategorized
+  case unknown
+  case dialogShown
+  case dialogButtonClicked
+  case dialogClosed
+  case chatScreenShown
+  case chatScreenClosed
+  case chatScreenButtonClicked
+  case chatScreenHistoryLoading
+  case chatScreenHistoryLoaded
+  case chatScreenMessageShown
+  case chatScreenFileUploading
+  case chatScreenFileScanning
+  case chatScreenFileUploaded
+  case chatScreenFileDownloading
+  case chatScreenFileDownloaded
+  case chatScreenSingleChoiceShown
+  case chatScreenSingleChoiceAnswered
+  case chatScreenCustomCardShown
+  case chatScreenCustomCardAction
+  case chatScreenGvaMessageShown
+  case chatScreenGvaMessageAction
+  case callScreenShown
+  case callScreenClosed
+  case callScreenButtonClicked
+  case callScreenOperatorVideoShown
+  case callScreenVisitorVideoShown
+  case scWelcomeScreenShown
+  case scWelcomeScreenClosed
+  case scWelcomeScreenButtonClicked
+  case scConfirmationScreenShown
+  case scConfirmationScreenClosed
+  case scConfirmationScreenButtonClicked
+  case entryWidgetShown
+  case entryWidgetDismissed
+  case entryWidgetStateChanged
+  case entryWidgetItemClicked
+  case entryWidgetButtonClicked
+  case surveyScreenShown
+  case surveyScreenButtonClicked
+  case surveyScreenClosed
+  case visitorCodeShown
+  case visitorCodeClosed
+  case visitorCodeStateChanged
+  case visitorCodeButtonClicked
+  case bubbleShown
+  case bubbleHidden
+  case bubbleStateChanged
+  case bubblePositionChanged
+  case bubbleClicked
+  case bubbleUnreadMessagesChanged
+  public var name: Swift.String {
+    get
+  }
+  public static func == (a: GliaOpenTelemetry.LogEvents, b: GliaOpenTelemetry.LogEvents) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum GliaAttributeValue : Swift.Hashable {
+  case string(Swift.String)
+  case bool(Swift.Bool)
+  case int(Swift.Int)
+  case double(Swift.Double)
+  case stringArray([Swift.String])
+  case boolArray([Swift.Bool])
+  case intArray([Swift.Int])
+  case doubleArray([Swift.Double])
+  public static func == (a: GliaOpenTelemetry.GliaAttributeValue, b: GliaOpenTelemetry.GliaAttributeValue) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public typealias AttributesBuilder = (inout [GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]) -> Swift.Void
+@_hasMissingDesignatedInitializers public class GliaLogger {
+  public enum LogLevel {
+    case debug
+    case info
+    case warn
+    case error
+    public static func == (a: GliaOpenTelemetry.GliaLogger.LogLevel, b: GliaOpenTelemetry.GliaLogger.LogLevel) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func setLogLevel(_ level: GliaOpenTelemetry.GliaLogger.LogLevel)
+  public func e(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, error: (any Swift.Error)? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func w(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func i(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func d(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func logDeprecatedApiUse(sdkType: GliaOpenTelemetry.SdkType, className: any Any.Type, methodName: Swift.String? = nil, methodParams: [Swift.String] = [])
+  public func logMethodUse(sdkType: GliaOpenTelemetry.SdkType, className: any Any.Type, methodName: Swift.String, methodParams: [Swift.String] = [])
+  @objc deinit
+}
+public class GliaTelemetry {
+  public var logger: GliaOpenTelemetry.GliaLogger {
+    get
+    set
+  }
+  public var tracer: GliaOpenTelemetry.GliaTracer {
+    get
+    set
+  }
+  public var rootContext: GliaOpenTelemetry.SpanContextWrapper {
+    get
+  }
+  public var gliaGlobalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] {
+    get
+  }
+  public init(globalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] = [:], spanContext: GliaOpenTelemetry.SpanContextWrapper? = nil, configuration: GliaOpenTelemetry.TelemetryConfiguration)
+  public func setGlobalAttribute(_ value: GliaOpenTelemetry.GliaAttributeValue?, forKey key: GliaOpenTelemetry.GliaAttributes)
+  public func flushLogsAndTraces()
+  @objc deinit
+}
+public struct TelemetryConfiguration {
+  public let domain: Swift.String
+  public let timeoutInSeconds: Swift.Int
+  public let maxBatchSize: Swift.Int
+  public let logDelaySeconds: Swift.Int
+  public let defaultScope: Swift.String
+  public var logEndpoint: Foundation.URL {
+    get
+  }
+  public var tracesEndpoint: Foundation.URL {
+    get
+  }
+  public init(domain: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class GliaTracer {
+  public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
+  @objc deinit
+}
+public struct SpanContextWrapper {
+}
+public protocol SpanExceptionWrapperProtocol {
+  var type: Swift.String { get }
+  var message: Swift.String? { get }
+  var stackTrace: [Swift.String]? { get }
+}
+extension Foundation.NSError : GliaOpenTelemetry.SpanExceptionWrapperProtocol {
+  public var type: Swift.String {
+    get
+  }
+  public var message: Swift.String? {
+    get
+  }
+  public var stackTrace: [Swift.String]? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class SpanWrapper {
+  public var name: Swift.String {
+    get
+    set
+  }
+  public var description: Swift.String {
+    get
+  }
+  public func setAttribute(key: Swift.String, value: GliaOpenTelemetry.GliaAttributeValue?)
+  public func setAttributes(_ attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
+  public func addEvent(name: Swift.String)
+  public func addEvent(name: Swift.String, timestamp: Foundation.Date)
+  public func addEvent(name: Swift.String, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
+  public func addEvent(name: Swift.String, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue], timestamp: Foundation.Date)
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol)
+  public func end()
+  public func end(time: Foundation.Date)
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, timestamp: Foundation.Date)
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue], timestamp: Foundation.Date)
+  @objc deinit
+}
+extension GliaOpenTelemetry.GliaAttributes : Swift.Equatable {}
+extension GliaOpenTelemetry.GliaAttributes : Swift.Hashable {}
+extension GliaOpenTelemetry.GliaAttributes : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.ButtonNames : Swift.Equatable {}
+extension GliaOpenTelemetry.ButtonNames : Swift.Hashable {}
+extension GliaOpenTelemetry.ButtonNames : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.DialogNames : Swift.Equatable {}
+extension GliaOpenTelemetry.DialogNames : Swift.Hashable {}
+extension GliaOpenTelemetry.DialogNames : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.GvaActionTypes : Swift.Equatable {}
+extension GliaOpenTelemetry.GvaActionTypes : Swift.Hashable {}
+extension GliaOpenTelemetry.GvaActionTypes : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.MediaTypes : Swift.Equatable {}
+extension GliaOpenTelemetry.MediaTypes : Swift.Hashable {}
+extension GliaOpenTelemetry.MediaTypes : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.EngagementSources : Swift.Equatable {}
+extension GliaOpenTelemetry.EngagementSources : Swift.Hashable {}
+extension GliaOpenTelemetry.EngagementSources : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.EngagementTypes : Swift.Equatable {}
+extension GliaOpenTelemetry.EngagementTypes : Swift.Hashable {}
+extension GliaOpenTelemetry.EngagementTypes : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.PushNotificationsTypes : Swift.Equatable {}
+extension GliaOpenTelemetry.PushNotificationsTypes : Swift.Hashable {}
+extension GliaOpenTelemetry.PushNotificationsTypes : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.BubbleStates : Swift.Equatable {}
+extension GliaOpenTelemetry.BubbleStates : Swift.Hashable {}
+extension GliaOpenTelemetry.BubbleStates : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.ViewTypes : Swift.Equatable {}
+extension GliaOpenTelemetry.ViewTypes : Swift.Hashable {}
+extension GliaOpenTelemetry.ViewTypes : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.EntryWidgetStates : Swift.Equatable {}
+extension GliaOpenTelemetry.EntryWidgetStates : Swift.Hashable {}
+extension GliaOpenTelemetry.EntryWidgetStates : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.VisitorCodeStates : Swift.Equatable {}
+extension GliaOpenTelemetry.VisitorCodeStates : Swift.Hashable {}
+extension GliaOpenTelemetry.VisitorCodeStates : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.DeviceOrientations : Swift.Equatable {}
+extension GliaOpenTelemetry.DeviceOrientations : Swift.Hashable {}
+extension GliaOpenTelemetry.DeviceOrientations : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.FrameworkNames : Swift.Equatable {}
+extension GliaOpenTelemetry.FrameworkNames : Swift.Hashable {}
+extension GliaOpenTelemetry.FrameworkNames : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.SdkType : Swift.Equatable {}
+extension GliaOpenTelemetry.SdkType : Swift.Hashable {}
+extension GliaOpenTelemetry.LogEvents : Swift.Equatable {}
+extension GliaOpenTelemetry.LogEvents : Swift.Hashable {}
+extension GliaOpenTelemetry.GliaLogger.LogLevel : Swift.Equatable {}
+extension GliaOpenTelemetry.GliaLogger.LogLevel : Swift.Hashable {}
