@@ -42,7 +42,7 @@ jobs:
             echo "Attempting to remove '${POD_NAME}' version '${VERSION}' from CocoaPods trunk..."
 
             # Attempt to remove the version from trunk
-            if pod trunk delete "${POD_NAME}" "${VERSION}" --synchronous; then
+            if pod trunk delete "${POD_NAME}" "${VERSION}"; then
               echo "Successfully removed '${POD_NAME}' version '${VERSION}' from trunk."
             else
               echo "::error::Failed to remove '${POD_NAME}' version '${VERSION}' from trunk."
