@@ -41,8 +41,8 @@ jobs:
           if pod trunk info "${POD_NAME}" 2>&1 | grep -F " - ${VERSION} (" >/dev/null; then
             echo "Attempting to remove '${POD_NAME}' version '${VERSION}' from CocoaPods trunk..."
 
-            # Attempt to remove the version from trunk
-            if pod trunk delete "${POD_NAME}" "${VERSION}"; then
+          # Attempt to remove the version from trunk (non-interactive confirm)
+          if printf "y\n" | pod trunk delete "${POD_NAME}" "${VERSION}"; then
               echo "Successfully removed '${POD_NAME}' version '${VERSION}' from trunk."
             else
               echo "::error::Failed to remove '${POD_NAME}' version '${VERSION}' from trunk."
