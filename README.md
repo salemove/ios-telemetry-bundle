@@ -9,7 +9,7 @@ Glia Technologies
 
 ### Requirements
 
-- iOS 15.5+
+- iOS 15.1+
 - Xcode 15.1+
 - Swift 5.3
 
