@@ -8,67 +8,11 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-public typealias AttributesBuilder = (inout [GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]) -> Swift.Void
-@_hasMissingDesignatedInitializers public class GliaLogger {
-  public enum LogLevel {
-    case debug
-    case info
-    case warn
-    case error
-    public static func == (a: GliaOpenTelemetry.GliaLogger.LogLevel, b: GliaOpenTelemetry.GliaLogger.LogLevel) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  public func setLogLevel(_ level: GliaOpenTelemetry.GliaLogger.LogLevel)
-  public func e(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, error: (any Swift.Error)? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
-  public func w(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
-  public func i(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
-  public func d(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
-  public func logDeprecatedApiUse(sdkType: GliaOpenTelemetry.SdkType, className: any Any.Type, methodName: Swift.String? = nil, methodParams: [Swift.String] = [])
-  public func logMethodUse(sdkType: GliaOpenTelemetry.SdkType, className: any Any.Type, methodName: Swift.String, methodParams: [Swift.String] = [])
-  @objc deinit
-}
-public class GliaTelemetry {
-  public var logger: GliaOpenTelemetry.GliaLogger {
-    get
-    set
-  }
-  public var tracer: GliaOpenTelemetry.GliaTracer {
-    get
-    set
-  }
-  public var rootContext: GliaOpenTelemetry.SpanContextWrapper {
-    get
-  }
-  public var gliaGlobalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] {
-    get
-  }
-  public init(globalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] = [:], spanContext: GliaOpenTelemetry.SpanContextWrapper? = nil, configuration: GliaOpenTelemetry.TelemetryConfiguration)
-  public func setGlobalAttribute(_ value: GliaOpenTelemetry.GliaAttributeValue?, forKey key: GliaOpenTelemetry.GliaAttributes)
-  public func flushLogsAndTraces()
-  @objc deinit
-}
-public struct SpanContextWrapper {
-}
-public struct TelemetryConfiguration {
-  public let domain: Swift.String
-  public let timeoutInSeconds: Swift.Int
-  public let maxBatchSize: Swift.Int
-  public let logDelaySeconds: Swift.Int
-  public let defaultScope: Swift.String
-  public var logEndpoint: Foundation.URL {
-    get
-  }
-  public var tracesEndpoint: Foundation.URL {
-    get
-  }
-  public init(domain: Swift.String)
-}
 @_hasMissingDesignatedInitializers public class GliaTracer {
   public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
   @objc deinit
+}
+public struct SpanContextWrapper {
 }
 public protocol SpanExceptionWrapperProtocol {
   var type: Swift.String { get }
@@ -85,28 +29,6 @@ extension Foundation.NSError : GliaOpenTelemetry.SpanExceptionWrapperProtocol {
   public var stackTrace: [Swift.String]? {
     get
   }
-}
-@_hasMissingDesignatedInitializers public class SpanWrapper {
-  public var name: Swift.String {
-    get
-    set
-  }
-  public var description: Swift.String {
-    get
-  }
-  public func setAttribute(key: Swift.String, value: GliaOpenTelemetry.GliaAttributeValue?)
-  public func setAttributes(_ attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
-  public func addEvent(name: Swift.String)
-  public func addEvent(name: Swift.String, timestamp: Foundation.Date)
-  public func addEvent(name: Swift.String, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
-  public func addEvent(name: Swift.String, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue], timestamp: Foundation.Date)
-  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol)
-  public func end()
-  public func end(time: Foundation.Date)
-  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, timestamp: Foundation.Date)
-  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
-  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue], timestamp: Foundation.Date)
-  @objc deinit
 }
 public typealias GlobalAttribute = Swift.String
 public typealias EventAttribute = Swift.String
@@ -161,6 +83,8 @@ public enum GliaAttributes : Swift.String {
   case entryWidgetState
   case entryWidgetItems
   case bubbleState
+  case snackBarType
+  case isAutoClosable
   public var name: Swift.String {
     get
   }
@@ -352,6 +276,14 @@ public enum DeviceOrientations : Swift.String {
     get
   }
 }
+public enum SnackBarTypes : Swift.String {
+  case connection
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum FrameworkNames : Swift.String {
   case native
   case flutter
@@ -501,6 +433,8 @@ public enum LogEvents {
   case bubblePositionChanged
   case bubbleClicked
   case bubbleUnreadMessagesChanged
+  case snackBarShown
+  case snackBarHidden
   public var name: Swift.String {
     get
   }
@@ -525,8 +459,84 @@ public enum GliaAttributeValue : Swift.Hashable {
     get
   }
 }
-extension GliaOpenTelemetry.GliaLogger.LogLevel : Swift.Equatable {}
-extension GliaOpenTelemetry.GliaLogger.LogLevel : Swift.Hashable {}
+public typealias AttributesBuilder = (inout [GliaOpenTelemetry.GliaAttributes : GliaOpenTelemetry.GliaAttributeValue]) -> Swift.Void
+@_hasMissingDesignatedInitializers public class GliaLogger {
+  public enum LogLevel {
+    case debug
+    case info
+    case warn
+    case error
+    public static func == (a: GliaOpenTelemetry.GliaLogger.LogLevel, b: GliaOpenTelemetry.GliaLogger.LogLevel) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func setLogLevel(_ level: GliaOpenTelemetry.GliaLogger.LogLevel)
+  public func e(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, error: (any Swift.Error)? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func w(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func i(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func d(_ event: GliaOpenTelemetry.LogEvents, message: Swift.String? = nil, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil)
+  public func logDeprecatedApiUse(sdkType: GliaOpenTelemetry.SdkType, className: any Any.Type, methodName: Swift.String? = nil, methodParams: [Swift.String] = [])
+  public func logMethodUse(sdkType: GliaOpenTelemetry.SdkType, className: any Any.Type, methodName: Swift.String, methodParams: [Swift.String] = [])
+  @objc deinit
+}
+public class GliaTelemetry {
+  public var logger: GliaOpenTelemetry.GliaLogger {
+    get
+    set
+  }
+  public var tracer: GliaOpenTelemetry.GliaTracer {
+    get
+    set
+  }
+  public var rootContext: GliaOpenTelemetry.SpanContextWrapper {
+    get
+  }
+  public var gliaGlobalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] {
+    get
+  }
+  public init(globalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] = [:], spanContext: GliaOpenTelemetry.SpanContextWrapper? = nil, configuration: GliaOpenTelemetry.TelemetryConfiguration)
+  public func setGlobalAttribute(_ value: GliaOpenTelemetry.GliaAttributeValue?, forKey key: GliaOpenTelemetry.GliaAttributes)
+  public func flushLogsAndTraces()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SpanWrapper {
+  public var name: Swift.String {
+    get
+    set
+  }
+  public var description: Swift.String {
+    get
+  }
+  public func setAttribute(key: Swift.String, value: GliaOpenTelemetry.GliaAttributeValue?)
+  public func setAttributes(_ attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
+  public func addEvent(name: Swift.String)
+  public func addEvent(name: Swift.String, timestamp: Foundation.Date)
+  public func addEvent(name: Swift.String, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
+  public func addEvent(name: Swift.String, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue], timestamp: Foundation.Date)
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol)
+  public func end()
+  public func end(time: Foundation.Date)
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, timestamp: Foundation.Date)
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
+  public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue], timestamp: Foundation.Date)
+  @objc deinit
+}
+public struct TelemetryConfiguration {
+  public let domain: Swift.String
+  public let timeoutInSeconds: Swift.Int
+  public let maxBatchSize: Swift.Int
+  public let logDelaySeconds: Swift.Int
+  public let defaultScope: Swift.String
+  public var logEndpoint: Foundation.URL {
+    get
+  }
+  public var tracesEndpoint: Foundation.URL {
+    get
+  }
+  public init(domain: Swift.String)
+}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Equatable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Hashable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.RawRepresentable {}
@@ -566,6 +576,9 @@ extension GliaOpenTelemetry.VisitorCodeStates : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.DeviceOrientations : Swift.Equatable {}
 extension GliaOpenTelemetry.DeviceOrientations : Swift.Hashable {}
 extension GliaOpenTelemetry.DeviceOrientations : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.SnackBarTypes : Swift.Equatable {}
+extension GliaOpenTelemetry.SnackBarTypes : Swift.Hashable {}
+extension GliaOpenTelemetry.SnackBarTypes : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.Equatable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.Hashable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.RawRepresentable {}
@@ -573,3 +586,5 @@ extension GliaOpenTelemetry.SdkType : Swift.Equatable {}
 extension GliaOpenTelemetry.SdkType : Swift.Hashable {}
 extension GliaOpenTelemetry.LogEvents : Swift.Equatable {}
 extension GliaOpenTelemetry.LogEvents : Swift.Hashable {}
+extension GliaOpenTelemetry.GliaLogger.LogLevel : Swift.Equatable {}
+extension GliaOpenTelemetry.GliaLogger.LogLevel : Swift.Hashable {}
