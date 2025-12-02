@@ -73,53 +73,44 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # --- Repo 1 config ---
-          - repo: salemove/ios-bundle
-            base_branch: master
-            updates:
-              - file: Package.swift
-                version_regex: >
-                  s/(\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)/\1$VERSION\2/
-                checksum_regex: >
-                  s/(GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)/\1$SHA256\2/
-              - file: GliaCoreSDK.podspec
-                version_regex: >
-                  s/(\s*s\.dependency\s+'GliaOpenTelemetry',\s*')[0-9]+\.[0-9]+\.[0-9]+('.*)/\1$VERSION\2/
-                checksum_regex: ""
-            commit_message: "chore: bump GliaOpenTelemetry to ${{ needs.build-metadata.outputs.version }}"
-            pr_title: "Bump telemetry to ${{ needs.build-metadata.outputs.version }}"
-            pr_body: |
-              Automated update:
-              - version: ${{ needs.build-metadata.outputs.version }}
-              - sha256:  ${{ needs.build-metadata.outputs.sha256 }}
-
-          # --- Repo 2 config ---
           - repo: salemove/ios-sdk
             base_branch: development
             updates:
+              - file: GliaCoreSDK/templates/Package.swift
+                version_regex: >
+                  (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
+                checksum_regex: >
+                  (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
+              - file: GliaCoreSDK/templates/GliaCoreSDK.podspec
+                version_regex: >
+                  (\s*s\.dependency\s+'GliaOpenTelemetry',\s*')[0-9]+\.[0-9]+\.[0-9]+('.*)
+                checksum_regex: "" 
               - file: GliaCoreSDK.sources.podspec
                 version_regex: >
-                  s/(\s*s\.dependency\s+'GliaOpenTelemetry',\s*')[0-9]+\.[0-9]+\.[0-9]+('.*)/\1$VERSION\2/
+                  (\s*s\.dependency\s+'GliaOpenTelemetry',\s*')[0-9]+\.[0-9]+\.[0-9]+('.*)
                 checksum_regex: ""
               - file: GliaCoreSDK.xcframework.podspec
                 version_regex: >
-                  s/(\s*s\.dependency\s+'GliaOpenTelemetry',\s*')[0-9]+\.[0-9]+\.[0-9]+('.*)/\1$VERSION\2/
+                  (\s*s\.dependency\s+'GliaOpenTelemetry',\s*')[0-9]+\.[0-9]+\.[0-9]+('.*)
                 checksum_regex: ""
             commit_message: "chore: bump GliaOpenTelemetry to ${{ needs.build-metadata.outputs.version }}"
             pr_title: "Bump telemetry to ${{ needs.build-metadata.outputs.version }}"
             pr_body: |
               Version: ${{ needs.build-metadata.outputs.version }}
               SHA256:  ${{ needs.build-metadata.outputs.sha256 }}
-
-          # --- Repo 3 config ---
           - repo: salemove/ios-sdk-widgets
             base_branch: development
             updates:
+              - file: templates/Package.swift
+                version_regex: >
+                  (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
+                checksum_regex: >
+                  (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
               - file: Package.swift
                 version_regex: >
-                  s/(\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)/\1$VERSION\2/
+                  (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
                 checksum_regex: >
-                  s/(GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)/\1$SHA256\2/
+                  (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
             commit_message: "chore: bump GliaOpenTelemetry to ${{ needs.build-metadata.outputs.version }}"
             pr_title: "Bump telemetry to ${{ needs.build-metadata.outputs.version }}"
             pr_body: |
@@ -127,12 +118,27 @@ jobs:
               - sha256  -> ${{ needs.build-metadata.outputs.sha256 }}
 
     steps:
+      - name: Parse repo name
+        id: parse_repo
+        run: |
+          REPO_NAME=$(echo "${{ matrix.repo }}" | cut -d'/' -f2)
+          echo "repo_name=$REPO_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ steps.parse_repo.outputs.repo_name }}
+
       - name: Checkout target repo
         uses: actions/checkout@v4
         with:
           repository: ${{ matrix.repo }}
           ref: ${{ matrix.base_branch }}
-          token: ${{ secrets.PR_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
 
       - name: Create update branch
         id: branch
@@ -159,11 +165,11 @@ jobs:
             test -f "$FILE" || { echo "File not found: $FILE" >&2; exit 1; }
 
             # Update version (sed with extended regex; keep groups 1 and 3, insert $VERSION)
-            sed -i -E "s|${VERSION_REGEX}|\1${VERSION}\3|g" "$FILE" 
+            sed -i -E "s|${VERSION_REGEX}|\1${VERSION}\2|g" "$FILE" 
 
             # Update checksum only if CHECKSUM_REGEX is not empty
             if [ -n "$CHECKSUM_REGEX" ]; then
-              sed -i -E "s|${CHECKSUM_REGEX}|\1${SHA256}\3|g" "$FILE"
+              sed -i -E "s|${CHECKSUM_REGEX}|\1${SHA256}\2|g" "$FILE"
             fi
 
             echo "Updated $FILE"
@@ -182,12 +188,13 @@ jobs:
             exit 0
           fi
           git commit -m "${{ matrix.commit_message }}"
+          git push --set-upstream origin HEAD
 
       - name: Create Pull Request
         if: success()
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.PR_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
           commit-message: ${{ matrix.commit_message }}
           title: ${{ matrix.pr_title }}
           body: ${{ matrix.pr_body }}
