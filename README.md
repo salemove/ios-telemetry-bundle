@@ -5,7 +5,7 @@
 
 ### Author
 
-Glia Technologies
+Glia Technologies, Inc.
 
 ### Requirements
 
