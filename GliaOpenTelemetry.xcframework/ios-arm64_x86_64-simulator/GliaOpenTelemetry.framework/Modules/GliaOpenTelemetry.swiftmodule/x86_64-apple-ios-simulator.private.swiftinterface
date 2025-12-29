@@ -12,24 +12,6 @@ import _SwiftConcurrencyShims
   public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
   @objc deinit
 }
-public struct SpanContextWrapper {
-}
-public protocol SpanExceptionWrapperProtocol {
-  var type: Swift.String { get }
-  var message: Swift.String? { get }
-  var stackTrace: [Swift.String]? { get }
-}
-extension Foundation.NSError : GliaOpenTelemetry.SpanExceptionWrapperProtocol {
-  public var type: Swift.String {
-    get
-  }
-  public var message: Swift.String? {
-    get
-  }
-  public var stackTrace: [Swift.String]? {
-    get
-  }
-}
 public typealias GlobalAttribute = Swift.String
 public typealias EventAttribute = Swift.String
 public enum GliaAttributes : Swift.String {
@@ -83,8 +65,9 @@ public enum GliaAttributes : Swift.String {
   case entryWidgetState
   case entryWidgetItems
   case bubbleState
-  case snackBarType
   case isAutoClosable
+  case type
+  case value
   public var name: Swift.String {
     get
   }
@@ -106,7 +89,9 @@ public enum ButtonNames : Swift.String {
   case back
   case addAttachment
   case selectFromLibrary
+  case takePhotoVideo
   case takePhoto
+  case takeVideo
   case browseFiles
   case scTopBanner
   case scTopBannerChat
@@ -295,6 +280,15 @@ public enum FrameworkNames : Swift.String {
     get
   }
 }
+public enum MediaQuality : Swift.String {
+  case good
+  case poor
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum SdkType {
   case coreSdk
   case widgetsSdk
@@ -374,6 +368,7 @@ public enum LogEvents {
   case mediaResumed
   case mediaOnHold
   case mediaStateChanged
+  case mediaQualityChanged
   case pushNotificationsTokenReceived
   case pushNotificationsReceived
   case pushNotificationsClicked
@@ -501,6 +496,38 @@ public class GliaTelemetry {
   public func flushLogsAndTraces()
   @objc deinit
 }
+public struct TelemetryConfiguration {
+  public let domain: Swift.String
+  public let timeoutInSeconds: Swift.Int
+  public let maxBatchSize: Swift.Int
+  public let logDelaySeconds: Swift.Int
+  public let defaultScope: Swift.String
+  public var logEndpoint: Foundation.URL {
+    get
+  }
+  public var tracesEndpoint: Foundation.URL {
+    get
+  }
+  public init(domain: Swift.String)
+}
+public struct SpanContextWrapper {
+}
+public protocol SpanExceptionWrapperProtocol {
+  var type: Swift.String { get }
+  var message: Swift.String? { get }
+  var stackTrace: [Swift.String]? { get }
+}
+extension Foundation.NSError : GliaOpenTelemetry.SpanExceptionWrapperProtocol {
+  public var type: Swift.String {
+    get
+  }
+  public var message: Swift.String? {
+    get
+  }
+  public var stackTrace: [Swift.String]? {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers public class SpanWrapper {
   public var name: Swift.String {
     get
@@ -522,20 +549,6 @@ public class GliaTelemetry {
   public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue])
   public func recordException(_ exception: any GliaOpenTelemetry.SpanExceptionWrapperProtocol, attributes: [Swift.String : GliaOpenTelemetry.GliaAttributeValue], timestamp: Foundation.Date)
   @objc deinit
-}
-public struct TelemetryConfiguration {
-  public let domain: Swift.String
-  public let timeoutInSeconds: Swift.Int
-  public let maxBatchSize: Swift.Int
-  public let logDelaySeconds: Swift.Int
-  public let defaultScope: Swift.String
-  public var logEndpoint: Foundation.URL {
-    get
-  }
-  public var tracesEndpoint: Foundation.URL {
-    get
-  }
-  public init(domain: Swift.String)
 }
 extension GliaOpenTelemetry.GliaAttributes : Swift.Equatable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Hashable {}
@@ -582,6 +595,9 @@ extension GliaOpenTelemetry.SnackBarTypes : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.Equatable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.Hashable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.MediaQuality : Swift.Equatable {}
+extension GliaOpenTelemetry.MediaQuality : Swift.Hashable {}
+extension GliaOpenTelemetry.MediaQuality : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.SdkType : Swift.Equatable {}
 extension GliaOpenTelemetry.SdkType : Swift.Hashable {}
 extension GliaOpenTelemetry.LogEvents : Swift.Equatable {}
