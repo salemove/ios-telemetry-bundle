@@ -8,40 +8,6 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-public class GliaTelemetry {
-  public var logger: GliaOpenTelemetry.GliaLogger {
-    get
-    set
-  }
-  public var tracer: GliaOpenTelemetry.GliaTracer {
-    get
-    set
-  }
-  public var rootContext: GliaOpenTelemetry.SpanContextWrapper {
-    get
-  }
-  public var gliaGlobalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] {
-    get
-  }
-  public init(globalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] = [:], spanContext: GliaOpenTelemetry.SpanContextWrapper? = nil, configuration: GliaOpenTelemetry.TelemetryConfiguration)
-  public func setGlobalAttribute(_ value: GliaOpenTelemetry.GliaAttributeValue?, forKey key: GliaOpenTelemetry.GliaAttributes)
-  public func flushLogsAndTraces()
-  @objc deinit
-}
-public struct TelemetryConfiguration {
-  public let domain: Swift.String
-  public let timeoutInSeconds: Swift.Int
-  public let maxBatchSize: Swift.Int
-  public let logDelaySeconds: Swift.Int
-  public let defaultScope: Swift.String
-  public var logEndpoint: Foundation.URL {
-    get
-  }
-  public var tracesEndpoint: Foundation.URL {
-    get
-  }
-  public init(domain: Swift.String)
-}
 @_hasMissingDesignatedInitializers public class GliaTracer {
   public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
   @objc deinit
@@ -139,8 +105,9 @@ public enum GliaAttributes : Swift.String {
   case entryWidgetState
   case entryWidgetItems
   case bubbleState
-  case snackBarType
   case isAutoClosable
+  case type
+  case value
   public var name: Swift.String {
     get
   }
@@ -162,7 +129,9 @@ public enum ButtonNames : Swift.String {
   case back
   case addAttachment
   case selectFromLibrary
+  case takePhotoVideo
   case takePhoto
+  case takeVideo
   case browseFiles
   case scTopBanner
   case scTopBannerChat
@@ -351,6 +320,15 @@ public enum FrameworkNames : Swift.String {
     get
   }
 }
+public enum MediaQuality : Swift.String {
+  case good
+  case poor
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum SdkType {
   case coreSdk
   case widgetsSdk
@@ -430,6 +408,7 @@ public enum LogEvents {
   case mediaResumed
   case mediaOnHold
   case mediaStateChanged
+  case mediaQualityChanged
   case pushNotificationsTokenReceived
   case pushNotificationsReceived
   case pushNotificationsClicked
@@ -537,6 +516,40 @@ public typealias AttributesBuilder = (inout [GliaOpenTelemetry.GliaAttributes : 
   public func logMethodUse(sdkType: GliaOpenTelemetry.SdkType, className: any Any.Type, methodName: Swift.String, methodParams: [Swift.String] = [])
   @objc deinit
 }
+public class GliaTelemetry {
+  public var logger: GliaOpenTelemetry.GliaLogger {
+    get
+    set
+  }
+  public var tracer: GliaOpenTelemetry.GliaTracer {
+    get
+    set
+  }
+  public var rootContext: GliaOpenTelemetry.SpanContextWrapper {
+    get
+  }
+  public var gliaGlobalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] {
+    get
+  }
+  public init(globalAttributes: [GliaOpenTelemetry.GlobalAttribute : GliaOpenTelemetry.GliaAttributeValue] = [:], spanContext: GliaOpenTelemetry.SpanContextWrapper? = nil, configuration: GliaOpenTelemetry.TelemetryConfiguration)
+  public func setGlobalAttribute(_ value: GliaOpenTelemetry.GliaAttributeValue?, forKey key: GliaOpenTelemetry.GliaAttributes)
+  public func flushLogsAndTraces()
+  @objc deinit
+}
+public struct TelemetryConfiguration {
+  public let domain: Swift.String
+  public let timeoutInSeconds: Swift.Int
+  public let maxBatchSize: Swift.Int
+  public let logDelaySeconds: Swift.Int
+  public let defaultScope: Swift.String
+  public var logEndpoint: Foundation.URL {
+    get
+  }
+  public var tracesEndpoint: Foundation.URL {
+    get
+  }
+  public init(domain: Swift.String)
+}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Equatable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Hashable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.RawRepresentable {}
@@ -582,6 +595,9 @@ extension GliaOpenTelemetry.SnackBarTypes : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.Equatable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.Hashable {}
 extension GliaOpenTelemetry.FrameworkNames : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.MediaQuality : Swift.Equatable {}
+extension GliaOpenTelemetry.MediaQuality : Swift.Hashable {}
+extension GliaOpenTelemetry.MediaQuality : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.SdkType : Swift.Equatable {}
 extension GliaOpenTelemetry.SdkType : Swift.Hashable {}
 extension GliaOpenTelemetry.LogEvents : Swift.Equatable {}
