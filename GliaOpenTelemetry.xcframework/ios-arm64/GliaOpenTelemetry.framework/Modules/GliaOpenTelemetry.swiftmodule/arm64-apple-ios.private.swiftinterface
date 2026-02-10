@@ -77,6 +77,7 @@ public enum GliaAttributes : Swift.String {
   case mediaType
   case engagementType
   case engagementSource
+  case authorizationType
   case deviceOrientation
   case permission
   case permissionResult
@@ -194,6 +195,15 @@ public enum GvaActionTypes : Swift.String {
   case email
   case url
   case postBack
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum AuthorizationTypes : Swift.String {
+  case siteApiKey
+  case userApiKey
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -562,6 +572,9 @@ extension GliaOpenTelemetry.DialogNames : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.GvaActionTypes : Swift.Equatable {}
 extension GliaOpenTelemetry.GvaActionTypes : Swift.Hashable {}
 extension GliaOpenTelemetry.GvaActionTypes : Swift.RawRepresentable {}
+extension GliaOpenTelemetry.AuthorizationTypes : Swift.Equatable {}
+extension GliaOpenTelemetry.AuthorizationTypes : Swift.Hashable {}
+extension GliaOpenTelemetry.AuthorizationTypes : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.MediaTypes : Swift.Equatable {}
 extension GliaOpenTelemetry.MediaTypes : Swift.Hashable {}
 extension GliaOpenTelemetry.MediaTypes : Swift.RawRepresentable {}

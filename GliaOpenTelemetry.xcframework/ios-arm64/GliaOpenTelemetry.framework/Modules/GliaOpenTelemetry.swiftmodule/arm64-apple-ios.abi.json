@@ -1932,6 +1932,43 @@
           },
           {
             "kind": "Var",
+            "name": "authorizationType",
+            "printedName": "authorizationType",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GliaOpenTelemetry.GliaAttributes.Type) -> GliaOpenTelemetry.GliaAttributes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GliaAttributes",
+                    "printedName": "GliaOpenTelemetry.GliaAttributes",
+                    "usr": "s:17GliaOpenTelemetry0A10AttributesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GliaOpenTelemetry.GliaAttributes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GliaAttributes",
+                        "printedName": "GliaOpenTelemetry.GliaAttributes",
+                        "usr": "s:17GliaOpenTelemetry0A10AttributesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17GliaOpenTelemetry0A10AttributesO17authorizationTypeyA2CmF",
+            "mangledName": "$s17GliaOpenTelemetry0A10AttributesO17authorizationTypeyA2CmF",
+            "moduleName": "GliaOpenTelemetry"
+          },
+          {
+            "kind": "Var",
             "name": "deviceOrientation",
             "printedName": "deviceOrientation",
             "children": [
@@ -5905,6 +5942,219 @@
         "declKind": "Enum",
         "usr": "s:17GliaOpenTelemetry14GvaActionTypesO",
         "mangledName": "$s17GliaOpenTelemetry14GvaActionTypesO",
+        "moduleName": "GliaOpenTelemetry",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AuthorizationTypes",
+        "printedName": "AuthorizationTypes",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "siteApiKey",
+            "printedName": "siteApiKey",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GliaOpenTelemetry.AuthorizationTypes.Type) -> GliaOpenTelemetry.AuthorizationTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthorizationTypes",
+                    "printedName": "GliaOpenTelemetry.AuthorizationTypes",
+                    "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GliaOpenTelemetry.AuthorizationTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthorizationTypes",
+                        "printedName": "GliaOpenTelemetry.AuthorizationTypes",
+                        "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO10siteApiKeyyA2CmF",
+            "mangledName": "$s17GliaOpenTelemetry18AuthorizationTypesO10siteApiKeyyA2CmF",
+            "moduleName": "GliaOpenTelemetry"
+          },
+          {
+            "kind": "Var",
+            "name": "userApiKey",
+            "printedName": "userApiKey",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GliaOpenTelemetry.AuthorizationTypes.Type) -> GliaOpenTelemetry.AuthorizationTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthorizationTypes",
+                    "printedName": "GliaOpenTelemetry.AuthorizationTypes",
+                    "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GliaOpenTelemetry.AuthorizationTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthorizationTypes",
+                        "printedName": "GliaOpenTelemetry.AuthorizationTypes",
+                        "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO10userApiKeyyA2CmF",
+            "mangledName": "$s17GliaOpenTelemetry18AuthorizationTypesO10userApiKeyyA2CmF",
+            "moduleName": "GliaOpenTelemetry"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GliaOpenTelemetry.AuthorizationTypes?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthorizationTypes",
+                    "printedName": "GliaOpenTelemetry.AuthorizationTypes",
+                    "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO8rawValueACSgSS_tcfc",
+            "mangledName": "$s17GliaOpenTelemetry18AuthorizationTypesO8rawValueACSgSS_tcfc",
+            "moduleName": "GliaOpenTelemetry",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO8rawValueSSvp",
+            "mangledName": "$s17GliaOpenTelemetry18AuthorizationTypesO8rawValueSSvp",
+            "moduleName": "GliaOpenTelemetry",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO8rawValueSSvg",
+                "mangledName": "$s17GliaOpenTelemetry18AuthorizationTypesO8rawValueSSvg",
+                "moduleName": "GliaOpenTelemetry",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:17GliaOpenTelemetry18AuthorizationTypesO",
+        "mangledName": "$s17GliaOpenTelemetry18AuthorizationTypesO",
         "moduleName": "GliaOpenTelemetry",
         "declAttributes": [
           "AccessControl"
@@ -17603,964 +17853,985 @@
       "kind": "StringLiteral",
       "offset": 1956,
       "length": 20,
+      "value": "\"authorization_type\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
+      "kind": "StringLiteral",
+      "offset": 2006,
+      "length": 20,
       "value": "\"device_orientation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 1999,
+      "offset": 2049,
       "length": 12,
       "value": "\"permission\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2040,
+      "offset": 2090,
       "length": 19,
       "value": "\"permission_result\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2083,
+      "offset": 2133,
       "length": 13,
       "value": "\"environment\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2119,
+      "offset": 2169,
       "length": 13,
       "value": "\"locale_code\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2154,
+      "offset": 2204,
       "length": 12,
       "value": "\"socket_url\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2191,
+      "offset": 2241,
       "length": 15,
       "value": "\"channel_topic\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2231,
+      "offset": 2281,
       "length": 15,
       "value": "\"channel_event\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2266,
+      "offset": 2316,
       "length": 10,
       "value": "\"queue_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2302,
+      "offset": 2352,
       "length": 17,
       "value": "\"queue_ticket_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2358,
+      "offset": 2408,
       "length": 31,
       "value": "\"terminate_existing_queue_bool\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2418,
+      "offset": 2468,
       "length": 26,
       "value": "\"visitor_context_asset_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2463,
+      "offset": 2513,
       "length": 9,
       "value": "\"file_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2494,
+      "offset": 2544,
       "length": 12,
       "value": "\"request_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2529,
+      "offset": 2579,
       "length": 13,
       "value": "\"operator_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2565,
+      "offset": 2615,
       "length": 13,
       "value": "\"action_type\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2600,
+      "offset": 2650,
       "length": 12,
       "value": "\"message_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2636,
+      "offset": 2686,
       "length": 14,
       "value": "\"message_type\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2676,
+      "offset": 2726,
       "length": 16,
       "value": "\"message_sender\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2717,
+      "offset": 2767,
       "length": 15,
       "value": "\"message_count\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2755,
+      "offset": 2805,
       "length": 13,
       "value": "\"button_name\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2791,
+      "offset": 2841,
       "length": 13,
       "value": "\"dialog_name\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2825,
+      "offset": 2875,
       "length": 11,
       "value": "\"push_type\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2857,
+      "offset": 2907,
       "length": 11,
       "value": "\"view_type\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2897,
+      "offset": 2947,
       "length": 20,
       "value": "\"visitor_code_state\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2946,
+      "offset": 2996,
       "length": 20,
       "value": "\"entry_widget_state\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 2995,
+      "offset": 3045,
       "length": 20,
       "value": "\"entry_widget_items\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3039,
+      "offset": 3089,
       "length": 14,
       "value": "\"bubble_state\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3080,
+      "offset": 3130,
       "length": 18,
       "value": "\"is_auto_closable\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3115,
+      "offset": 3165,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3139,
+      "offset": 3189,
       "length": 7,
       "value": "\"value\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3254,
+      "offset": 3304,
       "length": 14,
       "value": "\"send_message\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3286,
+      "offset": 3336,
       "length": 20,
       "value": "\"retry_send_message\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3322,
+      "offset": 3372,
       "length": 5,
       "value": "\"gva\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3352,
+      "offset": 3402,
       "length": 15,
       "value": "\"download_file\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3396,
+      "offset": 3446,
       "length": 19,
       "value": "\"remove_attachment\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3448,
+      "offset": 3498,
       "length": 24,
       "value": "\"new_messages_indicator\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3490,
+      "offset": 3540,
       "length": 7,
       "value": "\"close\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3513,
+      "offset": 3563,
       "length": 16,
       "value": "\"end_engagement\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3546,
+      "offset": 3596,
       "length": 17,
       "value": "\"navigation_back\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3589,
+      "offset": 3639,
       "length": 16,
       "value": "\"add_attachment\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3635,
+      "offset": 3685,
       "length": 37,
       "value": "\"add_attachment_photo_library_option\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3699,
+      "offset": 3749,
       "length": 30,
       "value": "\"add_attachment_camera_option\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3751,
+      "offset": 3801,
       "length": 36,
       "value": "\"add_attachment_camera_photo_option\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3809,
+      "offset": 3859,
       "length": 36,
       "value": "\"add_attachment_camera_video_option\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3869,
+      "offset": 3919,
       "length": 29,
       "value": "\"add_attachment_files_option\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3922,
+      "offset": 3972,
       "length": 15,
       "value": "\"sc_top_banner\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 3965,
+      "offset": 4015,
       "length": 20,
       "value": "\"sc_top_banner_chat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4014,
+      "offset": 4064,
       "length": 21,
       "value": "\"sc_top_banner_video\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4064,
+      "offset": 4114,
       "length": 21,
       "value": "\"sc_top_banner_audio\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4114,
+      "offset": 4164,
       "length": 23,
       "value": "\"sc_top_banner_unknown\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4152,
+      "offset": 4202,
       "length": 4,
       "value": "\"ok\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4177,
+      "offset": 4227,
       "length": 10,
       "value": "\"positive\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4208,
+      "offset": 4258,
       "length": 10,
       "value": "\"negative\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4258,
+      "offset": 4308,
       "length": 32,
       "value": "\"engagement_confirmation_link_1\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4330,
+      "offset": 4380,
       "length": 32,
       "value": "\"engagement_confirmation_link_2\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4379,
+      "offset": 4429,
       "length": 6,
       "value": "\"chat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4405,
+      "offset": 4455,
       "length": 10,
       "value": "\"video_on\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4436,
+      "offset": 4486,
       "length": 11,
       "value": "\"video_off\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4464,
+      "offset": 4514,
       "length": 6,
       "value": "\"mute\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4489,
+      "offset": 4539,
       "length": 8,
       "value": "\"unmute\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4519,
+      "offset": 4569,
       "length": 12,
       "value": "\"speaker_on\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4554,
+      "offset": 4604,
       "length": 13,
       "value": "\"speaker_off\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4588,
+      "offset": 4638,
       "length": 10,
       "value": "\"minimize\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4624,
+      "offset": 4674,
       "length": 16,
       "value": "\"check_messages\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4659,
+      "offset": 4709,
       "length": 8,
       "value": "\"submit\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4686,
+      "offset": 4736,
       "length": 8,
       "value": "\"cancel\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4717,
+      "offset": 4767,
       "length": 13,
       "value": "\"flip_camera\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4768,
+      "offset": 4818,
       "length": 31,
       "value": "\"retry_load_entry_widget_items\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4830,
+      "offset": 4880,
       "length": 22,
       "value": "\"refresh_visitor_code\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 4881,
+      "offset": 4931,
       "length": 20,
       "value": "\"close_visitor_code\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5016,
+      "offset": 5066,
       "length": 21,
       "value": "\"permissions_request\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5067,
+      "offset": 5117,
       "length": 20,
       "value": "\"missing_permission\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5130,
+      "offset": 5180,
       "length": 35,
       "value": "\"screen_overlay_permission_request\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5205,
+      "offset": 5255,
       "length": 31,
       "value": "\"live_observation_confirmation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5271,
+      "offset": 5321,
       "length": 26,
       "value": "\"leave_queue_confirmation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5337,
+      "offset": 5387,
       "length": 31,
       "value": "\"leave_engagement_confirmation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5417,
+      "offset": 5467,
       "length": 41,
       "value": "\"leave_secure_conversations_confirmation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5486,
+      "offset": 5536,
       "length": 18,
       "value": "\"engagement_ended\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5528,
+      "offset": 5578,
       "length": 14,
       "value": "\"visitor_code\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5570,
+      "offset": 5620,
       "length": 18,
       "value": "\"unexpected_error\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5635,
+      "offset": 5685,
       "length": 39,
       "value": "\"secure_conversation_unavailable_error\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5708,
+      "offset": 5758,
       "length": 25,
       "value": "\"allow_push_notification\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5766,
+      "offset": 5816,
       "length": 23,
       "value": "\"unauthenticated_error\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5826,
+      "offset": 5876,
       "length": 28,
       "value": "\"media_upgrade_confirmation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5880,
+      "offset": 5930,
       "length": 17,
       "value": "\"queue_is_closed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5934,
+      "offset": 5984,
       "length": 27,
       "value": "\"unsupported_gva_broadcast\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 5996,
+      "offset": 6046,
       "length": 26,
       "value": "\"unavailable_media_source\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6136,
+      "offset": 6186,
       "length": 17,
       "value": "\"broadcast_event\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6171,
+      "offset": 6221,
       "length": 7,
       "value": "\"phone\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6196,
+      "offset": 6246,
       "length": 7,
       "value": "\"email\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6219,
+      "offset": 6269,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6245,
+      "offset": 6295,
       "length": 11,
       "value": "\"post_back\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6315,
+      "offset": 6373,
+      "length": 14,
+      "value": "\"site_api_key\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
+      "kind": "StringLiteral",
+      "offset": 6410,
+      "length": 14,
+      "value": "\"user_api_key\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
+      "kind": "StringLiteral",
+      "offset": 6483,
       "length": 13,
       "value": "\"local_audio\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6351,
+      "offset": 6519,
       "length": 13,
       "value": "\"local_video\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6388,
+      "offset": 6556,
       "length": 14,
       "value": "\"remote_audio\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6426,
+      "offset": 6594,
       "length": 14,
       "value": "\"remote_video\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6504,
+      "offset": 6672,
       "length": 10,
       "value": "\"omnicore\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6537,
+      "offset": 6705,
       "length": 12,
       "value": "\"omnibrowse\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6607,
+      "offset": 6775,
       "length": 6,
       "value": "\"chat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6631,
+      "offset": 6799,
       "length": 7,
       "value": "\"audio\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6662,
+      "offset": 6830,
       "length": 15,
       "value": "\"one_way_video\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6701,
+      "offset": 6869,
       "length": 15,
       "value": "\"two_way_video\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6744,
+      "offset": 6912,
       "length": 18,
       "value": "\"secure_messaging\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6789,
+      "offset": 6957,
       "length": 17,
       "value": "\"call_visualizer\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6946,
+      "offset": 7114,
       "length": 18,
       "value": "\"engagement.start\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 6980,
+      "offset": 7148,
       "length": 16,
       "value": "\"engagement.end\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7015,
+      "offset": 7183,
       "length": 28,
       "value": "\"engagement.request.failure\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7063,
+      "offset": 7231,
       "length": 25,
       "value": "\"engagement.chat.message\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7109,
+      "offset": 7277,
       "length": 21,
       "value": "\"engagement.transfer\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7157,
+      "offset": 7325,
       "length": 40,
       "value": "\"engagement.secure_conversation.message\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7258,
+      "offset": 7426,
       "length": 12,
       "value": "\"enqueueing\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7300,
+      "offset": 7468,
       "length": 20,
       "value": "\"operator_connected\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7339,
+      "offset": 7507,
       "length": 9,
       "value": "\"on_hold\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7404,
+      "offset": 7572,
       "length": 10,
       "value": "\"embedded\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7438,
+      "offset": 7606,
       "length": 14,
       "value": "\"bottom_sheet\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7471,
+      "offset": 7639,
       "length": 8,
       "value": "\"dialog\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7542,
+      "offset": 7710,
       "length": 9,
       "value": "\"offline\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7571,
+      "offset": 7739,
       "length": 9,
       "value": "\"loading\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7598,
+      "offset": 7766,
       "length": 7,
       "value": "\"items\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7623,
+      "offset": 7791,
       "length": 7,
       "value": "\"error\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7660,
+      "offset": 7828,
       "length": 21,
       "value": "\"sdk_not_initialized\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7711,
+      "offset": 7879,
       "length": 20,
       "value": "\"ongoing_engagement\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7794,
+      "offset": 7962,
       "length": 9,
       "value": "\"loading\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7825,
+      "offset": 7993,
       "length": 12,
       "value": "\"code_shown\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7855,
+      "offset": 8023,
       "length": 7,
       "value": "\"error\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7927,
+      "offset": 8095,
       "length": 10,
       "value": "\"portrait\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7959,
+      "offset": 8127,
       "length": 11,
       "value": "\"landscape\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 7989,
+      "offset": 8157,
       "length": 9,
       "value": "\"face_up\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8019,
+      "offset": 8187,
       "length": 11,
       "value": "\"face_down\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8050,
+      "offset": 8218,
       "length": 9,
       "value": "\"unknown\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8121,
+      "offset": 8289,
       "length": 12,
       "value": "\"connection\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8192,
+      "offset": 8360,
       "length": 8,
       "value": "\"native\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8220,
+      "offset": 8388,
       "length": 9,
       "value": "\"flutter\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8247,
+      "offset": 8415,
       "length": 7,
       "value": "\"ionic\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8278,
+      "offset": 8446,
       "length": 14,
       "value": "\"react_native\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8347,
+      "offset": 8515,
       "length": 6,
       "value": "\"good\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ios-telemetry\/ios-telemetry\/GliaOpenTelemetry\/Attributes.swift",
       "kind": "StringLiteral",
-      "offset": 8370,
+      "offset": 8538,
       "length": 6,
       "value": "\"poor\""
     },
