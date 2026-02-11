@@ -1,7 +1,7 @@
 name: Pull request create
 
 on:
-  create:
+  push:
     branches:
       - "Release/**"
 
