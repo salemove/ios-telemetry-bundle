@@ -8,12 +8,6 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@_hasMissingDesignatedInitializers public class GliaTracer {
-  public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
-  @objc deinit
-}
-public struct SpanContextWrapper {
-}
 public protocol SpanExceptionWrapperProtocol {
   var type: Swift.String { get }
   var message: Swift.String? { get }
@@ -73,11 +67,9 @@ public enum GliaAttributes : Swift.String {
   case cause
   case className
   case methodName
-  case apiKeyId
   case mediaType
   case engagementType
   case engagementSource
-  case authorizationType
   case deviceOrientation
   case permission
   case permissionResult
@@ -195,15 +187,6 @@ public enum GvaActionTypes : Swift.String {
   case email
   case url
   case postBack
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum AuthorizationTypes : Swift.String {
-  case siteApiKey
-  case userApiKey
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -560,6 +543,12 @@ public struct TelemetryConfiguration {
   }
   public init(domain: Swift.String)
 }
+@_hasMissingDesignatedInitializers public class GliaTracer {
+  public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
+  @objc deinit
+}
+public struct SpanContextWrapper {
+}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Equatable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Hashable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.RawRepresentable {}
@@ -572,9 +561,6 @@ extension GliaOpenTelemetry.DialogNames : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.GvaActionTypes : Swift.Equatable {}
 extension GliaOpenTelemetry.GvaActionTypes : Swift.Hashable {}
 extension GliaOpenTelemetry.GvaActionTypes : Swift.RawRepresentable {}
-extension GliaOpenTelemetry.AuthorizationTypes : Swift.Equatable {}
-extension GliaOpenTelemetry.AuthorizationTypes : Swift.Hashable {}
-extension GliaOpenTelemetry.AuthorizationTypes : Swift.RawRepresentable {}
 extension GliaOpenTelemetry.MediaTypes : Swift.Equatable {}
 extension GliaOpenTelemetry.MediaTypes : Swift.Hashable {}
 extension GliaOpenTelemetry.MediaTypes : Swift.RawRepresentable {}
