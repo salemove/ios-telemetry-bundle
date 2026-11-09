@@ -48,13 +48,13 @@ jobs:
             --repo "$SRC_REPO" \
             --pattern "$ASSET_NAME" \
             --dir artifact
-          FILE_COUNT=$(ls -1 artifact | wc -l | tr -d ' ')
+          FILE_COUNT=$(find artifact -mindepth 1 -maxdepth 1 -type f | wc -l | tr -d ' ')
           if [ "$FILE_COUNT" -ne 1 ]; then
             echo "Expected exactly one asset matching '$ASSET_NAME', found $FILE_COUNT" >&2
             ls -l artifact >&2 || true
             exit 1
           fi
-          ASSET_PATH="artifact/$(ls -1 artifact)"
+          ASSET_PATH=$(find artifact -mindepth 1 -maxdepth 1 -type f)
           echo "asset_path=$ASSET_PATH" >> "$GITHUB_OUTPUT"
 
       - name: Calculate SHA-256 hash
@@ -82,7 +82,24 @@ jobs:
           - repo: salemove/ios-sdk
             base_branch: development
             updates:
+              # Dependencies/Package.swift lands in ios-sdk with a separate PR; until
+              # then it is missing there and the update step skips it with a warning.
               - file: Dependencies/Package.swift
+                version_regex: >
+                  (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
+                checksum_regex: >
+                  (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
+              - file: GliaCoreSDK/templates/Package.swift
+                version_regex: >
+                  (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
+                checksum_regex: >
+                  (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
+              - file: GliaCoreSDK/Package.swift
+                version_regex: >
+                  (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
+                checksum_regex: >
+                  (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
+              - file: MediaKit/Package.swift
                 version_regex: >
                   (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
                 checksum_regex: >
@@ -150,13 +167,20 @@ jobs:
           SHA256: ${{ needs.build-metadata.outputs.sha256 }}
         run: |
           set -euo pipefail
-          echo "$UPDATES_JSON" > updates.json
-          jq -c '.[]' updates.json | while read -r item; do
+          UPDATED=0
+          # Process substitution instead of a pipe so UPDATED survives the loop;
+          # feed jq from the variable so no scratch file ends up in the consumer repo.
+          while read -r item; do
             FILE=$(echo "$item" | jq -r '.file')
             VERSION_REGEX=$(echo "$item" | jq -r '.version_regex')
             CHECKSUM_REGEX=$(echo "$item" | jq -r '.checksum_regex')
 
-            test -f "$FILE" || { echo "File not found: $FILE" >&2; exit 1; }
+            # A file may not exist (yet) in the target repo; skip it rather than
+            # failing the whole matrix entry.
+            if [ ! -f "$FILE" ]; then
+              echo "::warning::File not found, skipping: $FILE"
+              continue
+            fi
 
             # perl in slurp mode rather than sed: the checksum pattern spans the
             # newline between the url and checksum lines, which sed cannot match
@@ -168,8 +192,17 @@ jobs:
               perl -0777 -i -pe "s|${CHECKSUM_REGEX}|\${1}${SHA256}\${2}|g" "$FILE"
             fi
 
+            if git diff --quiet -- "$FILE"; then
+              echo "::warning::No changes in $FILE (regex did not match or version already current)"
+            fi
+            UPDATED=$((UPDATED + 1))
             echo "Updated $FILE"
-          done
+          done < <(jq -c '.[]' <<< "$UPDATES_JSON")
+
+          if [ "$UPDATED" -eq 0 ]; then
+            echo "::error::None of the configured files exist in ${{ matrix.repo }}; nothing to update."
+            exit 1
+          fi
           git status --porcelain
 
       - name: Commit changes
