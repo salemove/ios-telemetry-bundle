@@ -8,6 +8,12 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class GliaTracer {
+  public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
+  @objc deinit
+}
+public struct SpanContextWrapper {
+}
 public protocol SpanExceptionWrapperProtocol {
   var type: Swift.String { get }
   var message: Swift.String? { get }
@@ -542,12 +548,6 @@ public struct TelemetryConfiguration {
     get
   }
   public init(domain: Swift.String)
-}
-@_hasMissingDesignatedInitializers public class GliaTracer {
-  public func startTrace(event: GliaOpenTelemetry.LogEvents, attributesBuilder: GliaOpenTelemetry.AttributesBuilder? = nil) -> GliaOpenTelemetry.SpanWrapper
-  @objc deinit
-}
-public struct SpanContextWrapper {
 }
 extension GliaOpenTelemetry.GliaAttributes : Swift.Equatable {}
 extension GliaOpenTelemetry.GliaAttributes : Swift.Hashable {}
