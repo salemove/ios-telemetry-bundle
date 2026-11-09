@@ -99,11 +99,6 @@ jobs:
                   (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
                 checksum_regex: >
                   (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
-              - file: MediaKit/Package.swift
-                version_regex: >
-                  (\s*url\s*:\s*".*?/releases/download/)[^/]+(/GliaOpenTelemetry\.xcframework\.zip".*)
-                checksum_regex: >
-                  (GliaOpenTelemetry\.xcframework\.zip",\s*\n+\s*checksum:\s*")[^"]+("\s*)
             commit_message: "chore: bump GliaOpenTelemetry to ${{ needs.build-metadata.outputs.version }}"
             pr_title: "Bump telemetry to ${{ needs.build-metadata.outputs.version }}"
             pr_body: |
@@ -194,6 +189,7 @@ jobs:
 
             if git diff --quiet -- "$FILE"; then
               echo "::warning::No changes in $FILE (regex did not match or version already current)"
+              continue
             fi
             UPDATED=$((UPDATED + 1))
             echo "Updated $FILE"
@@ -206,6 +202,9 @@ jobs:
           git status --porcelain
 
       - name: Commit changes
+        id: commit
+        env:
+          BRANCH: ${{ steps.branch.outputs.name }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -217,20 +216,37 @@ jobs:
             exit 0
           fi
           git commit -m "${{ matrix.commit_message }}"
-          git push --set-upstream origin HEAD
+          # The chore/telemetry-<version> branch is owned by this automation, so a stale copy from an earlier run is safe to overwrite.
+          # Fetch it first: the shallow checkout has no remote-tracking ref for it, and
+          # --force-with-lease rejects the push as "stale info" without one.
+          git fetch origin "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}" || true
+          git push --force-with-lease --set-upstream origin HEAD
+          echo "skip_pr=false" >> "$GITHUB_OUTPUT"
 
-      - name: Create Pull Request
-        if: success()
-        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6.1.0
-        with:
-          token: ${{ steps.generate_token.outputs.token }}
-          commit-message: ${{ matrix.commit_message }}
-          title: ${{ matrix.pr_title }}
-          body: ${{ matrix.pr_body }}
-          branch: ${{ steps.branch.outputs.name }}
-          base: ${{ matrix.base_branch }}
-
-      - name: PR URLs
-        if: success()
+      - name: Create pull request
+        if: steps.commit.outputs.skip_pr != 'true'
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+          REPO: ${{ matrix.repo }}
+          HEAD: ${{ steps.branch.outputs.name }}
+          BASE: ${{ matrix.base_branch }}
+          TITLE: ${{ matrix.pr_title }}
+          BODY: ${{ matrix.pr_body }}
         run: |
-          echo "Opened PR for ${{ matrix.repo }} on branch ${{ steps.branch.outputs.name }}"
+          set -euo pipefail
+          existing=$(gh pr list --repo "$REPO" --base "$BASE" --head "$HEAD" --state open --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            echo "PR #$existing already exists for $HEAD"
+            exit 0
+          fi
+          gh pr create --repo "$REPO" --base "$BASE" --head "$HEAD" --title "$TITLE" --body "$BODY"
+
+      - name: PR URL
+        if: steps.commit.outputs.skip_pr != 'true'
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+          REPO: ${{ matrix.repo }}
+          HEAD: ${{ steps.branch.outputs.name }}
+        run: |
+          set -euo pipefail
+          gh pr view --repo "$REPO" "$HEAD" --json url --jq .url
